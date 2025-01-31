@@ -1,0 +1,33 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>PDF Merger</h1>
+        <div class="upload-section">
+            <input type="file" id="pdfInput" multiple accept=".pdf" hidden>
+            <div class="drop-zone" id="dropZone">
+                <span>Drag & Drop PDF files or</span>
+                <button onclick="document.getElementById('pdfInput').click()">Browse Files</button>
+            </div>
+            <div id="fileList"></div>
+            <div class="controls">
+                <button onclick="mergePDFs()" id="mergeBtn">Merge PDFs</button>
+                <button onclick="clearFiles()" id="clearBtn">Clear All</button>
+            </div>
+            <div id="progress" class="hidden">
+                <div class="progress-bar"></div>
+                <span>Processing...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
